@@ -39,7 +39,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
         res.sendFile(tempFile, function (err) {
             if (err) {
                 console.error(err);
-                res.status(err.status).end();
+                res.status(500).end();
             }
             try {
                 deleteLocalFiles([tempFile]);
@@ -48,7 +48,6 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
             }
         });
     });
-
 
     // Start the Server
     app.listen(port, () => {
